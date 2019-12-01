@@ -1,0 +1,20 @@
+{{ define "meta" }}
+<meta name="description" content="A software developer's blog">
+{{ end }}
+
+{{ define "includes" }}
+<link rel="stylesheet" type="text/css" href="/style/index.css">
+{{ end }}
+
+{{ define "main" }}
+<div id="articleContainer">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "articles") }}
+    {{ range  $paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ else }}
+        <p>Articles will be shown here in the future.</p>    
+    {{ end}}
+</div>
+
+{{ partial "pagination" $paginator }}
+{{ end }}

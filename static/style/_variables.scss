@@ -1,0 +1,23 @@
+@import "fonts";
+
+$breakpoint-tablet: 481px;
+$breakpoint-laptop: 769px;
+$breakpoint-desktop: 1280px;
+
+$color-accent: #CC4C4C;
+$color-complementary: #97BE47;
+$color-front: white;
+$color-front-disabled: #E3B1B1;
+$color-text: #323232;
+$color-text-quote: #7C7C7C;
+$color-text-secondary: #4C9191;
+$color-table-alternate: #FFEBEB;
+$color-table-highlight: #FFAFAF;
+$color-link: #3A90EF;
+
+$font-text: Inter, Georgia, 'Times New Roman', Times, serif;
+$font-heading: Georgia;
+
+$max-content-width: 800px;
+$line-height-text: 1.7rem;
+$font-size-text: 1.1rem;

@@ -1,0 +1,16 @@
+{{/* Pass a Paginator object as context */}}
+<div id="pagination">
+    <div id="paginationControls">
+        {{ if .HasNext }}
+            <a href="{{ .Next.URL }}" class="paginationButton">&#8592; Older Articles</a>
+        {{ else }}
+            <a href="#" class="paginationButton hidden">&#8592; Older Articles</a>
+        {{ end }}
+
+        {{ if .HasPrev }}
+            <a href="{{ .Prev.URL }}" class="paginationButton">Newer Articles &#8594;</a>
+        {{ else }}
+            <a href="#" class="paginationButton hidden">Newer Articles &#8594;</a>
+        {{ end }}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="article">
+    <a rel="post" href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">
+        <h3>{{ .Title }}</h3>
+    </a>
+
+    <small class="articleInfo">
+        {{ if .Params.author }}
+            by {{ .Params.author }}
+        {{ end }}
+
+        {{ if not (time .Date).IsZero }}
+            on {{ .Date.Format "02.01.2006" }}
+        {{ end }}
+    </small>
+
+    <p class="abstract">
+        {{ .Summary }}
+        <br/>
+        <i><a rel="post" href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">Read more</a></i>
+    </p>
+
+    {{ if .Keywords }}
+        {{ partial "tags" .Keywords }}
+    {{ end }}
+</div>

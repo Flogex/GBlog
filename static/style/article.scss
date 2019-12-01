@@ -1,0 +1,161 @@
+@import "variables";
+@import "single";
+@import "authorInfo";
+
+main {
+    article {
+        hr {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+#articleMeta {
+    margin-bottom: 30px;
+
+    small {
+        margin: 0;
+        color: $color-text-secondary;
+        font-size: unset;
+    }
+}
+
+#articleContent {
+    sup>a, a>sup {
+        color: #3A90EF;
+    }
+
+    ul {
+        padding-left: 30px;
+    }
+
+    ol {
+        padding-left: 30px;
+    }
+
+    li {
+        p {
+            margin: 0;
+        }
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 7px;
+    }
+
+    pre {
+
+    }
+
+    code {
+
+    }
+
+    aside {
+
+    }
+
+    blockquote {
+        border-left: 8px solid $color-accent;
+        color: $color-text-quote;
+        padding-left: 10px;
+        margin: 30px 0;
+        page-break-inside: avoid;
+        font-style: italic;
+        text-align: left;
+    }
+
+    blockquote:cite {
+        background-color: black;
+    }
+
+    hr {
+
+    }
+
+    p {
+        line-height: 1.7rem;
+        font-size: 1.2rem;
+        word-break: break-word;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        border-collapse: collapse;
+        width: 100%;
+        font-feature-settings: 'tnum' 1;
+
+        th, td {
+            border: 1px solid $color-accent;
+            padding: 8px;
+        }
+
+        thead {
+            tr {
+                background-color: $color-accent;
+                color: white;
+            }
+
+            th {
+                font-weight: bold;
+            }
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: $color-table-alternate;
+        }
+
+        tbody tr:hover {
+            background-color: $color-table-highlight;
+        }
+        tfoot {}
+        caption {}
+    }
+
+    dt {
+        font-weight: bold;
+    }
+  
+    dd {
+        
+    }
+
+    small {}
+
+    .metadata {
+        margin-top: 0;
+        margin-bottom: 30px;
+        color: #AAAAAA;
+        text-align: center;
+    }
+}
+
+#relatedArticles {
+    align-self: flex-start;
+
+    h3 {
+        font-size: 1.3rem;
+        margin: 1.4rem 0 1.1rem 0;
+    }
+
+    a {
+        color: #3A90EF;
+        text-decoration: underline #3A90EF dotted;
+    }
+
+    a:hover {
+        text-decoration-style: solid;
+    }
+}
+
+#backToTop {
+    color: $color-text-secondary;
+    text-decoration: none;
+    font-style: italic;
+}

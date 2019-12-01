@@ -1,0 +1,9 @@
+/public/
+/resources/_gen/
+
+.sass-cache/
+*.css
+*.css.map
+*.scss.map
+
+*.code-workspace

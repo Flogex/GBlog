@@ -1,0 +1,32 @@
+@import "variables";
+@import "single";
+
+#socialMediaLinks {
+    list-style: none;
+    padding-left: 0;
+}
+
+.socialMediaLink {
+    color: $color-link;
+
+    span {
+        text-decoration: underline #3A90EF dotted;
+    }
+
+    img {
+        height: 1.3rem;
+        width: auto;
+    }
+}
+
+.socialMediaLink:hover {
+    span {
+        text-decoration-style: solid;
+    }
+}
+
+@media (min-width: $breakpoint-tablet) {
+    .socialMediaLink {
+        padding-left: 20px;
+    }
+}

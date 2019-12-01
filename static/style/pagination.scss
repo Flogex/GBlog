@@ -1,0 +1,23 @@
+@import "variables";
+
+#pagination {
+    max-width: $max-content-width;
+    width: 100%;
+
+    #paginationControls {
+        margin: 30px 8% 15px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .paginationButton {
+        text-decoration: none;
+        white-space: nowrap;
+        color: black;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+}

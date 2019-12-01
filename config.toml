@@ -1,0 +1,35 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "G-Blog"
+summaryLength = 60
+paginate = 2
+canonifyURLs = true
+disableKinds = [ "taxonomy", "taxonomyTerm" ]
+enableGitInfo = false
+enableRobotsTXT = false
+log = false
+logFile = ""
+relativeURLs = true
+copyright = "Content is licensed under Creative Commons Attribution 4.0 International license "
+
+[menu]
+  [[menu.main]]
+    identifier = "articles"
+    name = "Articles"
+    title = "Read our articles"
+    url = "/"
+    weight = -2
+
+  [[menu.main]]
+    identifier = "resources"
+    name = "Resources"
+    title = "View helpful resources"
+    url = "/resources/"
+    weight = -1
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    title = "About us"
+    url = "/about/"
+    weight = 0

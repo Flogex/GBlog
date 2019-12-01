@@ -1,0 +1,18 @@
+{{ $authorName := . }}
+{{ $authorImageSrc := print "img/authors/" ($authorName | lower) ".png" }}
+{{ $authorBio := "" }}
+
+{{ if eq $authorName "Florian" }}
+    {{ $authorBio = "Florian is an experienced .NET developer and studies computer science at a German university." }}
+{{ else if eq $authorName "Daniel" }}
+    {{ $authorBio = "Bio of Daniel" }}
+{{ end }}
+
+<aside id="authorInfo">
+    <img id="authorImage" alt="Photo of {{ $authorName }}" src="{{ $authorImageSrc | relURL }}">
+
+    <div id="authorDescription">
+        <h3>{{ print $authorName " Gerlinghoff" }}</h3>
+        <p>{{ $authorBio }}</p>
+    </div>
+</aside>

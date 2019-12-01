@@ -1,0 +1,44 @@
+{{ define "meta" }}
+{{ if .Params.author -}} <meta name="author" content="{{ .Params.author }}"> {{- end }}
+{{ if .Summary -}} <meta name="description" content="{{ .Summary }}"> {{- end }}
+{{ if .Keywords -}} <meta name="keywords" content="{{ delimit .Keywords ", " }}"> {{- end }}
+<meta http-equiv="last-modified" content="{{ .Lastmod }}">
+<meta http-equiv="eTag" content="{{ .File.UniqueID }}">
+{{ end }}
+
+{{ define "includes" }}
+<link rel="stylesheet" type="text/css" href="/style/article.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-okaidia.min.css">
+{{ end }}
+
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+    {{ partial "metadata" . }}
+    <section id="articleContent">
+        {{ .Content }}
+    </section>
+
+    <section id="relatedArticles">
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ if gt (len $related) 0 }}
+            <h2>See also</h2>
+            <ul>
+                {{ range $related }}
+                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </section>
+
+    <a id="backToTop" href="#" title="Back to top"><small>Back to top</small></a>
+
+    {{ if .Params.author }}
+        <hr>
+        {{ partial "authorInfo" .Params.author }}
+    {{ end }}
+</article>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+{{ end }}

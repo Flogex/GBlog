@@ -1,0 +1,24 @@
+@import "variables";
+@import "articleListItem";
+@import "tags";
+@import "pagination";
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#articleContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: $max-content-width;
+
+    a {
+        text-decoration: none;
+        color: unset;
+    }
+}
