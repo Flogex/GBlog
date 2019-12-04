@@ -12,6 +12,6 @@ pool:
 steps:
 - script: |
     wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
-    tar -xzf hugo*.tar.gz
+    tar -xzvf hugo*.tar.gz
     .\hugo --version
   displayName: 'Download and execute hugo'
