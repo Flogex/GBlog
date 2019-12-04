@@ -1,7 +1,4 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+name: GBlog-$(SourceBranchName)-$(Date:yyyyMMdd)-$(Rev:.r)
 
 trigger:
 - master
@@ -9,9 +6,26 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- bash: |
-    wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
-    tar -xzvf hugo*.tar.gz
-    ./hugo --version
-  displayName: 'Download and execute hugo'
+stages:
+- stage: "Build Hugo website"
+  jobs:
+  - job: "DowloadHugo"
+    displayName: "Download Hugo"
+    steps:
+    - bash:
+        wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
+        tar -xzvf hugo*.tar.gz
+  - job: "RunHugo"
+    displayName: "Run Hugo"
+    dependsOn: "DownloadHugo"
+    steps: 
+    - bash: ./hugo --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
+
+- stage: "Deploy to server"
+  jobs:
+  - deployment: "Upload"
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo my first deployment
