@@ -21,7 +21,7 @@ stages:
     displayName: "Run Hugo"
     dependsOn: "Download"
     steps: 
-    - bash: ./hugo --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
+    - bash: ls && ./hugo --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
 
 - stage: "Deploy"
   displayName: "Deploy to server"
