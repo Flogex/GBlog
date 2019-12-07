@@ -14,8 +14,8 @@ stages:
     displayName: "Download Hugo"
     steps:
     - bash:
-        wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
-        tar -xzvf hugo*.tar.gz hugo
+        wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz &&
+        tar -xzvf hugo*.tar.gz hugo &&
         rm hugo*.tar.gz
   - job: "Run"
     displayName: "Run Hugo"
