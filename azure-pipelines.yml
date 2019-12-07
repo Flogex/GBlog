@@ -8,22 +8,24 @@ pool:
   vmImage: "ubuntu-latest"
 
 stages:
-- stage: "Build Hugo website"
+- stage: "Build"
+  displayName: "Build Hugo website"
   jobs:
-  - job: "DowloadHugo"
+  - job: "Dowload"
     displayName: "Download Hugo"
     steps:
     - bash:
         wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
         tar -xzvf hugo*.tar.gz hugo
         rm hugo*.tar.gz
-  - job: "RunHugo"
+  - job: "Run"
     displayName: "Run Hugo"
-    dependsOn: "DownloadHugo"
+    dependsOn: "Download"
     steps: 
     - bash: ./hugo --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
 
-- stage: "Deploy to server"
+- stage: "Deploy"
+  displayName: "Deploy to server"
   jobs:
   - deployment: "Upload"
     strategy:
