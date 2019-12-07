@@ -7,25 +7,30 @@ pool:
   vmImage: "ubuntu-latest"
 
 stages:
-- stage: "Build"
-  displayName: "Build Hugo website"
+- stage: "Production"
+  displayName: "Publish website to production"
   jobs:
-  - job: "Hugo"
+  - job: "Build"
     displayName: "Download and run Hugo"
     steps:
     - bash:
         wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz &&
         tar -xzvf hugo*.tar.gz hugo &&
         rm hugo*.tar.gz
-    - bash: ./hugo --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
+    - bash: ./hugo --destination $(Pipeline.Workspace)
+                   --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: "$(Pipeline.Workspace)"
+        artifactName: "hugo-site"
 
-- stage: "Deploy"
-  displayName: "Deploy to server"
-  jobs:
-  - deployment: "Upload"
+  - deployment: "Deploy"
+    displayName: "Deploy to server"
+    dependsOn: "Build"
     environment: "GBlog-prod"
     strategy:
       runOnce:
         deploy:
           steps:
-          - script: echo my first deployment
+          - bash: ls $(Pipeline.Workspac)
+          
