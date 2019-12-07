@@ -11,7 +11,7 @@ stages:
 - stage: "Build"
   displayName: "Build Hugo website"
   jobs:
-  - job: "Dowload"
+  - job: "Download"
     displayName: "Download Hugo"
     steps:
     - bash:
@@ -28,6 +28,7 @@ stages:
   displayName: "Deploy to server"
   jobs:
   - deployment: "Upload"
+    environment: "GBlog-prod"
     strategy:
       runOnce:
         deploy:
