@@ -1,10 +1,11 @@
 name: GBlog-$(SourceBranchName)-$(Date:yyyyMMdd)-$(Rev:.r)
 
 trigger:
-- master
+- "master"
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: "Linux"
+  vmImage: "ubuntu-latest"
 
 stages:
 - stage: "Build Hugo website"
