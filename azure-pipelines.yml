@@ -13,12 +13,13 @@ stages:
   - job: "Build"
     displayName: "Download and run Hugo"
     steps:
-    - bash:
-        wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz &&
-        tar -xzvf hugo*.tar.gz hugo &&
+    - bash: |
+        wget --tries 3 https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
+        tar -xzvf hugo*.tar.gz hugo
         rm hugo*.tar.gz
-    - bash: ls $(Pipeline.Workspace) && ./hugo --destination $(Pipeline.Workspace)
-                   --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
+    - bash: |
+        ./hugo --destination $(Pipeline.Workspace) --cleanDestinationDir --gc --ignoreCache --log --minify --noChmod
+        ls $(Pipeline.Workspace)
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: "$(Pipeline.Workspace)"
