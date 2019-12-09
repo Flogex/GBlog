@@ -15,7 +15,7 @@
     {{ hugo.Generator }}
     {{ block "meta" . }} {{ end }}
 
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    {{ partial "scssLink" "style/style.scss" }}
     {{ block "includes" . }} {{ end }}
 </head>
 
