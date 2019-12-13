@@ -34,4 +34,16 @@ jobs:
     runOnce:
       deploy:
         steps:
-        - bash: ls $(Pipeline.Workspace)
+        - task: FtpUpload@2
+          inputs:
+            credentialsOption: inputs
+            serverUrl: ftps://h217262.server07.campusspeicher.de
+            username:
+            password: 
+            rootDirectory: 
+            #filePatterns: '**' 
+            #remoteDirectory: '/upload/$(Build.BuildId)/' 
+            clean: true # Clean remote directory before uploading 
+            #cleanContents: false # Required when clean == False
+            #preservePaths: false 
+            #trustSSL: false 
