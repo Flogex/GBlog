@@ -1,7 +1,7 @@
 {{ define "meta" }}
-{{ if .Params.author -}} <meta name="author" content="{{ .Params.author }}"> {{- end }}
-{{ if .Summary -}} <meta name="description" content="{{ .Summary }}"> {{- end }}
-{{ if .Keywords -}} <meta name="keywords" content="{{ delimit .Keywords ", " }}"> {{- end }}
+{{ with .Params.author -}} <meta name="author" content="{{ . }}"> {{- end }}
+{{ with .Summary -}} <meta name="description" content="{{ . }}"> {{- end }}
+{{ with .Keywords -}} <meta name="keywords" content="{{ delimit . ", " }}"> {{- end }}
 <meta http-equiv="last-modified" content="{{ .Lastmod }}">
 <meta http-equiv="eTag" content="{{ .File.UniqueID }}">
 {{ end }}
@@ -33,9 +33,9 @@
 
     <a id="backToTop" href="#" title="Back to top"><small>Back to top</small></a>
 
-    {{ if .Params.author }}
+    {{ with .Params.author }}
         <hr>
-        {{ partial "authorInfo" .Params.author }}
+        {{ partial "authorInfo" . }}
     {{ end }}
 </article>
 
