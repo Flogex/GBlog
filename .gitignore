@@ -1,8 +1,6 @@
 /public/
-/resources/_gen/
+/resources/
 
-.sass-cache/
-*.css
 *.css.map
 *.scss.map
 
