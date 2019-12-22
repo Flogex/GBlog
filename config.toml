@@ -10,7 +10,7 @@ enableRobotsTXT = false
 log = false
 logFile = ""
 relativeURLs = true
-copyright = "Content is licensed under Creative Commons Attribution 4.0 International license "
+copyright = "Content is licensed under Creative Commons Attribution 4.0 International license"
 
 [menu]
   [[menu.main]]
@@ -33,3 +33,13 @@ copyright = "Content is licensed under Creative Commons Attribution 4.0 Internat
     title = "About us"
     url = "/about/"
     weight = 0
+
+[mediaTypes."application/atom"]
+  suffixes = ["atom.xml"]
+
+[outputFormats.Atom]
+  mediaType = "application/atom"
+
+[outputs]
+  home = ["HTML", "Atom"]
+  section = ["HTML"]

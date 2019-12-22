@@ -1,0 +1,37 @@
+{{ printf `<?xml version="1.0" encoding="utf-8"?>` | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>{{ .Site.BaseURL }}</id>
+  <title>{{ .Site.Title }}</title>
+  <updated>{{ .Site.LastChange.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated> 
+  <author>
+    <name>Florian Gerlinghoff</name>
+    <uri>{{ absURL "about" }}</uri>
+  </author>
+  <category term="software" label="Software Engineering"/>
+  <category term="development" label="Software Development"/>
+  <category term="programming" label="Programming"/>
+  <rights>{{ .Site.Copyright }}</rights>
+  <icon></icon>
+  <logo></logo>
+  <link rel="self" type="application/atom+xml" href="{{ absURL "index.atom.xml" }}"/>
+  <link rel="alternate" type="text/html" hreflang="en" href="{{ .Site.BaseURL }}"/>
+  <generator uri="https://gohugo.io/" version="{{ hugo.Version }}">Hugo</generator>
+
+  {{ range (where .Site.RegularPages "Section" "articles") -}}
+  <entry>
+    <id>{{ .Permalink }}</id>
+    <title>{{ .Title | plainify }}</title>
+    <published>{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</published>
+    <updated>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+    <link rel="alternate" type="text/html" href="{{ .Permalink }}"/>
+    {{ with .Params.author -}}
+      <author>
+        <name>{{ . }}</name>
+        <uri>{{ absURL "about" }}</uri>
+      </author>
+    {{ end -}}
+    {{ printf `<summary type="html"><![CDATA[%s]]></summary>` .Summary | safeHTML }}
+    {{ printf `<content type="html"><![CDATA[%s]]></content>` .Content | safeHTML }}
+  </entry>
+  {{ end }}
+</feed>
