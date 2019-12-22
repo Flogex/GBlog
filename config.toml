@@ -34,12 +34,11 @@ copyright = "Content is licensed under Creative Commons Attribution 4.0 Internat
     url = "/about/"
     weight = 0
 
-[mediaTypes]
-  [mediaTypes."application/atom"]
-    suffixes = ["atom.xml"]
+[mediaTypes."application/atom"]
+  suffixes = ["atom.xml"]
 
-  [outputFormats.Atom]
-    mediaType = "application/atom"
+[outputFormats.Atom]
+  mediaType = "application/atom"
 
 [outputs]
-  home = ["HTML", "RSS", "Atom"]
+  home = ["HTML", "Atom"]

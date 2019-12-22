@@ -21,11 +21,9 @@
             </div>
             <div id="footerLinks">
                 <ul>
-                    {{/*
                     <li>
-                        <a href="#"><span class="icon-rss"></span>RSS</a>
+                        <a rel="alternate" href="{{ relref . (dict "path" "_index.md" "outputFormat" "atom") }}"><span class="icon-rss"></span>Atom</a>
                     </li>
-                    */}}
                     <li>
                         <a rel="impressum" href="{{ relref . "impressum.html" }}" title="Impressum">Impressum</a>
                     </li>
