@@ -4,7 +4,6 @@ title = "G-Blog"
 summaryLength = 60
 paginate = 2
 canonifyURLs = true
-disableKinds = [ "taxonomy", "taxonomyTerm" ]
 enableGitInfo = false
 enableRobotsTXT = false
 log = false
@@ -43,3 +42,6 @@ copyright = "Content is licensed under Creative Commons Attribution 4.0 Internat
 [outputs]
   home = ["HTML", "Atom"]
   section = ["HTML"]
+
+[taxonomies]
+  tag = "tags"
