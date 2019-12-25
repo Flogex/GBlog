@@ -1,0 +1,18 @@
+{{ define "includes" }}
+{{ partial "scssLink" "style/index.scss" }}
+{{ end }}
+
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ $paginator := .Paginate (.Pages) }}
+<div id="articleContainer">
+    {{ range  $paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ else }}
+        <p>No articles found with this tag.</p>
+    {{ end }}
+</div>
+
+{{ partial "pagination" $paginator }}
+{{ end }}
