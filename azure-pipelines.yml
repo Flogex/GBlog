@@ -42,7 +42,7 @@ jobs:
             ENV_FTP_PASSWORD: $(ftp_password)
           inputs:
             credentialsOption: inputs
-            serverUrl: $env:ENV_FTP_SERVER
+            serverUrl: "ftp://h217262.server07.campusspeicher.de"
             username: $env:ENV_FTP_USER
             password: $env:ENV_FTP_PASSWORD
             rootDirectory: $(Pipeline.Workspace)
