@@ -35,15 +35,18 @@ jobs:
       deploy:
         steps:
         - task: FtpUpload@2
+          env:
+            ENV_FTP_SERVER: $(ftp_server)
+            ENV_FTP_USER: $(ftp_user)
+            ENV_FTP_PASSWORD: $(ftp_password)
           inputs:
             credentialsOption: inputs
-            serverUrl: ftps://h217262.server07.campusspeicher.de
-            username:
-            password: 
-            rootDirectory: 
-            #filePatterns: '**' 
-            #remoteDirectory: '/upload/$(Build.BuildId)/' 
-            clean: true # Clean remote directory before uploading 
-            #cleanContents: false # Required when clean == False
+            serverUrl: $env:ENV_FTP_SERVER
+            username: $env:ENV_FTP_USER
+            password: $env:ENV_FTP_PASSWORD
+            rootDirectory: $(Pipeline.Workspace)
+            filePatterns: "**"
+            remoteDirectory: "/"
+            clean: true # Clean remote directory before uploading
             #preservePaths: false 
             #trustSSL: false 
