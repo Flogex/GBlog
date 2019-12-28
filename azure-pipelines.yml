@@ -34,6 +34,7 @@ jobs:
     runOnce:
       deploy:
         steps:
+        - bash: echo $(ftp_server) 
         - task: FtpUpload@2
           env:
             ENV_FTP_SERVER: $(ftp_server)
