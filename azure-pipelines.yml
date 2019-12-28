@@ -36,15 +36,11 @@ jobs:
         steps:
         - bash: echo $(ftp_server) 
         - task: FtpUpload@2
-          env:
-            ENV_FTP_SERVER: $(ftp_server)
-            ENV_FTP_USER: $(ftp_user)
-            ENV_FTP_PASSWORD: $(ftp_password)
           inputs:
             credentialsOption: inputs
-            serverUrl: "ftp://h217262.server07.campusspeicher.de"
-            username: $env:ENV_FTP_USER
-            password: $env:ENV_FTP_PASSWORD
+            serverUrl: $(ftp_server)
+            username: $(ftp_user)
+            password: $(ftp_password)
             rootDirectory: $(Pipeline.Workspace)
             filePatterns: "**"
             remoteDirectory: "/"
