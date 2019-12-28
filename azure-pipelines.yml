@@ -45,5 +45,5 @@ jobs:
             filePatterns: "**"
             remoteDirectory: "/"
             clean: true # Clean remote directory before uploading
-            #preservePaths: false 
-            #trustSSL: false 
+            preservePaths: true 
+            trustSSL: true 
