@@ -34,7 +34,7 @@ jobs:
     runOnce:
       deploy:
         steps:
-        - bash: echo $(ftp_server) 
+        - bash: ls $(Pipeline.Workspace)
         - task: FtpUpload@2
           inputs:
             credentialsOption: inputs
