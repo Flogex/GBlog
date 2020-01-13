@@ -2,8 +2,6 @@
 {{ with .Params.author -}} <meta name="author" content="{{ . }}"> {{- end }}
 {{ with .Summary -}} <meta name="description" content="{{ . }}"> {{- end }}
 {{ with .Keywords -}} <meta name="keywords" content="{{ delimit . ", " }}"> {{- end }}
-<meta http-equiv="last-modified" content="{{ .Lastmod }}">
-<meta http-equiv="eTag" content="{{ .File.UniqueID }}">
 {{ end }}
 
 {{ define "includes" }}
