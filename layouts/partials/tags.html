@@ -1,6 +1,6 @@
 <ul class="tagContainer">
     {{ range . }}
-        {{ $tagLink := print "tags/" . | lower }}
+        {{ $tagLink := print "tags/" . | urlize }}
         <a class="tag" href="{{ relURL $tagLink }}">
             <small class="tag">{{ . }}</small>
         </a>
