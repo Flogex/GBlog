@@ -1,0 +1,5 @@
+{{ $reference := anchorize (.Get 0) }}
+{{ $source := .Get 1 }}
+<p id="reference-{{ $reference }}">
+    [{{ $reference }}]: <a rel="external" href="{{ $source }}">{{ $source }}</a>
+</p>
