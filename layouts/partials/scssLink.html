@@ -1,4 +1,2 @@
-{{ $options := dict "outputStyle" "compressed" "enableSourceMap" true }}
-{{ $style := resources.Get . | resources.ToCSS $options }}
-{{ $fingerprinted := $style | resources.Fingerprint "sha384" }}
-<link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}" integrity="{{ $fingerprinted.Data.Integrity }}">
+{{ $href := print "style/" . ".css" | urlize | relURL }}
+<link rel="stylesheet" type="text/css" href="{{ $href }}">

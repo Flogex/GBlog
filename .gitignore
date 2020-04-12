@@ -1,6 +1,7 @@
 /public/
 /resources/
 
+*.css
 *.css.map
 *.scss.map
 
