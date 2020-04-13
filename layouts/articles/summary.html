@@ -19,7 +19,7 @@
         <i><a rel="post" href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">Read more</a></i>
     </p>
 
-    {{ with .Keywords }}
+    {{ with .Params.tags }}
         {{ partial "tags" . }}
     {{ end }}
 </div>
