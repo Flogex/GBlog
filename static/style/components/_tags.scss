@@ -1,4 +1,4 @@
-@import "variables";
+@use '../variables' as var;
 
 .tagContainer {
     padding-left: 0;
@@ -9,15 +9,15 @@
     content: "\65"; // Tag symbol
     font-family: "blog-icon-font";
     font-style: normal;
-    color: $color-text-secondary;
+    color: var.$color-text-secondary;
 }
 
 .tag {
-    color: $color-text-secondary;
+    color: var.$color-text-secondary;
     text-decoration: none;
 }
 
 .tag:not(:last-child)::after {
     content: ", ";
-    color: $color-text-secondary;
+    color: var.$color-text-secondary;
 }

@@ -1,6 +1,6 @@
-@import "variables";
-@import "single";
-@import "authorInfo";
+@forward 'components/single';
+@forward 'components/authorInfo';
+@use 'variables' as var;
 
 main {
     article {
@@ -16,7 +16,7 @@ main {
 
     small {
         margin: 0;
-        color: $color-text-secondary;
+        color: var.$color-text-secondary;
         font-size: unset;
     }
 }
@@ -57,8 +57,8 @@ main {
     }
 
     blockquote {
-        border-left: 8px solid $color-accent;
-        color: $color-text-quote;
+        border-left: 8px solid var.$color-accent;
+        color: var.$color-text-quote;
         padding-left: 10px;
         margin: 30px 0;
         page-break-inside: avoid;
@@ -92,13 +92,13 @@ main {
         font-feature-settings: 'tnum' 1;
 
         th, td {
-            border: 1px solid $color-accent;
+            border: 1px solid var.$color-accent;
             padding: 8px;
         }
 
         thead {
             tr {
-                background-color: $color-accent;
+                background-color: var.$color-accent;
                 color: white;
             }
 
@@ -108,11 +108,11 @@ main {
         }
 
         tbody tr:nth-child(even) {
-            background-color: $color-table-alternate;
+            background-color: var.$color-table-alternate;
         }
 
         tbody tr:hover {
-            background-color: $color-table-highlight;
+            background-color: var.$color-table-highlight;
         }
         tfoot {}
         caption {}
@@ -155,7 +155,7 @@ main {
 }
 
 #backToTop {
-    color: $color-text-secondary;
+    color: var.$color-text-secondary;
     text-decoration: none;
     font-style: italic;
 }

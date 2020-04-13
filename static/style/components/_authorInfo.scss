@@ -1,4 +1,4 @@
-@import "variables";
+@use '../variables' as var;
 
 #authorInfo {
     display: flex;
@@ -29,7 +29,7 @@
     }
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var.$breakpoint-tablet) {
     #authorInfo {
         flex-direction: row;
         align-items: flex-start;

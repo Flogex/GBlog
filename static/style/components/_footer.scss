@@ -1,4 +1,4 @@
-@import "variables";
+@use '../variables' as var;
 
 footer {
     display: flex;
@@ -9,7 +9,7 @@ footer {
     color: white;
 
     a {
-        color: $color-link;
+        color: var.$color-link;
         text-decoration: none;
     }
 }
@@ -18,7 +18,7 @@ footer {
     opacity: 0.75;
 
     width: 100%;
-    max-width: $max-content-width;
+    max-width: var.$max-content-width;
 }
 
 #footerLayout {
@@ -70,7 +70,7 @@ footer {
     content: "\64  ";
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var.$breakpoint-tablet) {
     #copyrightTextLong {
         visibility: visible;
         height: unset;

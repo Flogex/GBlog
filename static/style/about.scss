@@ -1,5 +1,5 @@
-@import "variables";
-@import "single";
+@forward 'components/single';
+@use 'variables' as var;
 
 #socialMediaLinks {
     list-style: none;
@@ -7,7 +7,7 @@
 }
 
 .socialMediaLink {
-    color: $color-link;
+    color: var.$color-link;
 
     span {
         text-decoration: underline #3A90EF dotted;
@@ -25,7 +25,7 @@
     }
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var.$breakpoint-tablet) {
     .socialMediaLink {
         padding-left: 20px;
     }

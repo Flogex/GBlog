@@ -1,10 +1,10 @@
-@import "variables";
+@use '../variables' as var;
 
 main {
     box-sizing: border-box;
     padding: 0 6%;
-    font-size: $font-size-text;
-    line-height: $line-height-text;
+    font-size: var.$font-size-text;
+    line-height: var.$line-height-text;
     margin-bottom: 5vh;
 
     // Place content in center on wider screens
@@ -17,7 +17,7 @@ main {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        max-width: $max-content-width;
+        max-width: var.$max-content-width;
 
         h1 {
             hyphens: none;
