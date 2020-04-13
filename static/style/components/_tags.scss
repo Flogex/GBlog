@@ -1,0 +1,23 @@
+@use '../variables' as var;
+
+.tagContainer {
+    padding-left: 0;
+    margin: 0;
+
+    &::before {
+        content: "\65"; // Tag symbol
+        font-family: "blog-icon-font";
+        font-style: normal;
+        color: var.$color-text-secondary;
+    }
+}
+
+.tag {
+    color: var.$color-text-secondary;
+    text-decoration: none;
+
+    &:not(:last-child)::after {
+        content: ", ";
+        color: var.$color-text-secondary;
+    }
+}

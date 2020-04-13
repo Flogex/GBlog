@@ -1,0 +1,36 @@
+@forward 'articleContent';
+@use '../variables' as var;
+
+main {
+    // Place content in center on wider screens
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    padding: 0 6%;
+    margin-bottom: 5vh;
+
+    article { /* Container for the actual content, e.g. articleMeta + articleContent */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Headings etc. are centered */
+        width: 100%;
+        max-width: var.$max-content-width;
+
+        h1 {
+            hyphens: none;
+            font-size: var.$font-size-h1;
+            font-weight: 600;
+            line-height: 2.2rem;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: unset;
+            }
+        }
+    }
+}

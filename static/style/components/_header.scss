@@ -1,12 +1,12 @@
-@import "variables";
+@use '../variables' as var;
 
 header {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
 
-    background-color: $color-accent;
-    color: $color-front;
+    background-color: var.$color-accent;
+    color: var.$color-front;
 
     padding: 0 10px 0 6%;
 
@@ -15,19 +15,19 @@ header {
     }
 }
 
-#logo {
+#blogLogo {
     box-sizing: border-box;
 
     h1 {
-        color: $color-front;
+        color: var.$color-front;
 
-        font-family: Consolas, Courier New, monospace, serif;
+        font-family: Consolas, "Courier New", monospace, serif;
         font-size: 1.5rem;
         text-align: left;
     }
 
     #coloredChar {
-        color: $color-complementary;
+        color: var.$color-complementary;
     }
 }
 
@@ -43,27 +43,16 @@ nav {
 }
 
 .navigationButton {
-    color: inherit;
     text-align: center;
 
-    .navigationIcon {
-        height: 20px;
-        padding: 5px;
-        border-radius: 50%;
+    span[class^="icon-"]::before {
+        font-size: 1rem;
     }
 
     p {
         margin: 0;
         margin-top: 5px;
         font-size: 0.9rem;
-    }
-
-    pre {
-        margin: 0;
-    }
-
-    span[class^="icon-"]::before {
-        font-size: 1rem;
     }
 }
 
@@ -80,46 +69,38 @@ nav {
 }
 
 .selected {
-    color: $color-front;
-
-    .navigationIcon {
-        border: 1px solid $color-front;
-    }
+    color: var.$color-front;
 }
 
 .unselected {
-    color: $color-front-disabled;
-
-    .navigationIcon {
-        border: 1px solid $color-front-disabled;
-    }
+    color: var.$color-front-disabled;
 }
 
-@media (min-width: $breakpoint-tablet) {
-    #logo {
+@media (min-width: var.$breakpoint-tablet) {
+    #blogLogo {
         h1 {
             font-size: 1.7rem;
         }
     }
 
     .navigationButton {
-        p {
-            font-size: 1rem;
-        }
-
         span[class^="icon-"]::before {
           font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 1rem;
         }
     }
 }
 
-@media (min-width: $breakpoint-laptop) {
+@media (min-width: var.$breakpoint-laptop) {
     header {
         padding: 0 20px;
         max-height: 75px;
     }
 
-    #logo {
+    #blogLogo {
         h1 {
             font-size: 1.9rem;
         }

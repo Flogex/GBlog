@@ -1,4 +1,4 @@
-@import "variables";
+@use '../variables' as var;
 
 .article {
     margin: 4% 8% 0 8%;
@@ -6,17 +6,17 @@
     h3 {
         margin: 0;
         margin-bottom: 5px;
-        color: $color-accent;
+        color: var.$color-accent;
         font-size: 1.5rem;
     }
 
     small {
-        color: $color-text-secondary;
+        color: var.$color-text-secondary;
     }
 }
 
 .abstract {
     margin: 12px 0;
-    line-height: $line-height-text;
-    font-size: $font-size-text;
+    line-height: var.$line-height-text;
+    font-size: var.$font-size-text;
 }

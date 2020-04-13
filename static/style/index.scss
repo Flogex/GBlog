@@ -1,13 +1,12 @@
-@import "variables";
-@import "articleListItem";
-@import "tags";
-@import "pagination";
+@forward 'components/articleListItem';
+@forward 'components/tags';
+@forward 'components/pagination';
+@use 'variables' as var;
 
 main {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    flex-wrap: nowrap;
+    align-items: center;
 }
 
 #articleContainer {
@@ -15,7 +14,7 @@ main {
     flex-direction: column;
 
     width: 100%;
-    max-width: $max-content-width;
+    max-width: var.$max-content-width;
 
     a {
         text-decoration: none;
