@@ -1,4 +1,5 @@
 ---
+aliases:
+- /articles
 title: Home
-aliases: [/articles]
 ---
