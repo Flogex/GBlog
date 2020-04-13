@@ -1,0 +1,161 @@
+@use '../variables' as var;
+
+#articleContent {
+    width: 100%;
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: var.$font-size-text;
+        line-height: var.$line-height-text;
+        word-break: break-word;
+    }
+
+    small {
+        font-size: 0.9rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: unset; /* Remove color from headings */
+
+        &:hover {
+            text-decoration-style: solid;
+        }
+    }
+
+    sup > a, a > sup {
+        color: var.$color-link;
+    }
+
+    p > a {
+        color: var.$color-link;
+        text-decoration: underline var.$color-link dotted;
+    }
+
+    ul, ol {
+        padding-left: 30px;
+    }
+
+    li {
+        font-size: var.$font-size-text;
+
+        &:not(:last-child) {
+            margin-bottom: 7px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    pre {
+    }
+
+    code {
+    }
+
+    blockquote {
+        border-left: 8px solid var.$color-accent;
+        color: var.$color-text-quote;
+        padding-left: 10px;
+        margin: 30px 0;
+        page-break-inside: avoid;
+        font-style: italic;
+        text-align: left;
+
+        &:cite {
+            background-color: black;
+        }
+    }
+
+    hr {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        border-collapse: collapse;
+        width: 100%;
+        font-feature-settings: "tnum" 1;
+
+        thead {
+            tr {
+                background-color: var.$color-accent;
+                color: white;
+            }
+
+            th {
+                border: 1px solid var.$color-accent;
+                border-right-color: white;
+                border-bottom-width: 0;
+                padding: 8px;
+                font-weight: normal;
+
+                &:last-child {
+                    border-right-color: var.$color-accent;
+                }
+            }
+        }
+
+        tbody {
+            tr:nth-child(even) {
+                background-color: var.$color-table-alternate;
+            }
+
+            tr:hover {
+                background-color: var.$color-table-highlight;
+            }
+
+            td {
+                border: 1px solid var.$color-accent;
+                border-top-width: 0;
+                padding: 8px;
+            }
+        }
+    }
+
+    dl {
+        display: flex;
+        flex-wrap: wrap;
+
+        border: 2px dashed var.$color-accent; //TODO color.change($color-accent, $alpha: 0.8);
+        padding: 5px;
+
+        dt {
+            font-weight: bold;
+            flex-basis: 20%;
+            margin-bottom: 10px;
+
+            &::after {
+                content: ":";
+            }
+        }
+
+        dd {
+            flex-basis: 80%;
+            margin: 0;
+            margin-bottom: 10px;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

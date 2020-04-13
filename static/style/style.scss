@@ -1,30 +1,27 @@
 @forward 'fonts';
 @forward 'components/header';
 @forward 'components/footer';
-@use 'variables' as *;
+@use 'variables' as var;
 
 html {
-    font-family: $font-text;
-    min-width: 320px;
+  font-family: var.$font-text;
+  min-width: 320px;
 }
 
 body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: $color-text;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  min-height: 100vh; /* Make the page fill at least the whole screen */
+  color: var.$color-text;
 }
 
 main {
-    flex-grow: 1;
+  flex-grow: 1; /* Stretch to fill remaining body */
 }
 
-span[class^="icon-"]:before {
-  font-family: "blog-icon-font" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
+span[class^="icon-"]::before {
+  font-family: "blog-icon-font";
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

@@ -5,8 +5,7 @@ footer {
     justify-content: center;
     padding: 0 6%;
 
-    background-color: #44464C;
-    color: white;
+    background-color: var.$color-footer;
 
     a {
         color: var.$color-link;
@@ -15,6 +14,7 @@ footer {
 }
 
 #footerContainer {
+    color: white;
     opacity: 0.75;
 
     width: 100%;
@@ -34,13 +34,13 @@ footer {
     grid-column: 1;
 }
 
-#copyrightTextLong {
-    visibility: hidden;
-    height: 0;
-}
-
 #copyrightTextLong, #copyrightTextShort {
     margin: 0;
+}
+
+#copyrightTextLong {
+    visibility: hidden;
+    display: none;
 }
 
 #ccIconContainer {
@@ -73,11 +73,11 @@ footer {
 @media (min-width: var.$breakpoint-tablet) {
     #copyrightTextLong {
         visibility: visible;
-        height: unset;
+        display: unset;
     }
 
     #copyrightTextShort {
         visibility: hidden;
-        height: 0;
+        display: none;
     }
 }

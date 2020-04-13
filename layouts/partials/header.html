@@ -1,5 +1,5 @@
 <header>
-    <div id="logo">
+    <div id="blogLogo">
         <a href="/" title="Homepage">
             <h1><span id="coloredChar">G</span>-Blog</h1>
         </a>
@@ -9,7 +9,7 @@
         {{ range .Site.Menus.main }}
             <a title="{{ .Title }}" href="{{ .URL }}">
                 {{ $isSelected := or (and $current.IsHome ($current.IsMenuCurrent "main" .)) (eq $current.Section .Identifier) }}
-                <div class="navigationButton {{ if $isSelected }} selected {{ else }} unselected {{ end }}">
+                <div class="navigationButton {{ if $isSelected -}} selected {{ else -}} unselected {{ end }}">
                     <span class="icon-{{ .Identifier }}"></span>
                     <p>{{ .Name }}</p>
                 </div>

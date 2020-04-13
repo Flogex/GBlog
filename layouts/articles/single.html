@@ -17,17 +17,17 @@
         {{ .Content }}
     </section>
 
-    <section id="relatedArticles">
-        {{ $related := .Site.RegularPages.Related . | first 3 }}
-        {{ if gt (len $related) 0 }}
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ if gt (len $related) 0 }}
+        <section id="relatedArticles">
             <h2>See also</h2>
             <ul>
                 {{ range $related }}
                     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                 {{ end }}
             </ul>
-        {{ end }}
-    </section>
+        </section>
+    {{ end }}
 
     <a id="backToTop" href="#" title="Back to top"><small>Back to top</small></a>
 

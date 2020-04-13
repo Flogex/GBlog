@@ -1,83 +1,36 @@
+@forward 'articleContent';
 @use '../variables' as var;
 
 main {
-    box-sizing: border-box;
-    padding: 0 6%;
-    font-size: var.$font-size-text;
-    line-height: var.$line-height-text;
-    margin-bottom: 5vh;
-
     // Place content in center on wider screens
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
 
-    article {
+    padding: 0 6%;
+    margin-bottom: 5vh;
+
+    article { /* Container for the actual content, e.g. articleMeta + articleContent */
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Headings etc. are centered */
         width: 100%;
         max-width: var.$max-content-width;
 
         h1 {
             hyphens: none;
-            font-size: 2rem;
+            font-size: var.$font-size-h1;
             font-weight: 600;
             line-height: 2.2rem;
             margin-top: 20px;
             margin-bottom: 15px;
             text-align: center;
+
+            a {
+                text-decoration: none;
+                color: unset;
+            }
         }
-
-        a {
-            text-decoration: none;
-            color: unset;
-        }
-    }
-}
-
-#articleContent {
-    width: 100%;
-
-    h2 {
-        font-size: 1.7rem;
-    }
-
-    h3 {
-        font-size: 1.3rem;
-        margin: 1.4rem 0 1.1rem 0;
-    }
-
-    h4 {
-        font-size: 1.1rem;
-    }
-
-    h5, h6 {
-        font-size: 1rem;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration-style: solid;
-    }
-
-    p>a {
-        color: #3A90EF;
-        text-decoration: underline #3A90EF dotted;
-    }
-
-    p>a[href^="http"]::after {
-        content: " \66"; // External link symbol
-        font-family: "blog-icon-font";
-        font-style: normal;
-        font-size: 0.9em;
-        white-space: nowrap;
-    }
-
-    p>a[href*="localost:1313/"]::after {
-        content: none;
     }
 }

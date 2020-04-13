@@ -4,25 +4,28 @@
             <div id="copyright">
                 <p id="copyrightTextLong">
                     Content on this site is licensed under a
-                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0 License">
+                    <a rel="license external" href="http://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0 License">
                         Creative Commons Attribution 4.0 International license (CC BY 4.0)
                     </a>
                 </p>
                 <p id="copyrightTextShort">
-                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0 License">CC BY 4.0</a>
+                    <a rel="license external" href="http://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0 License">CC BY 4.0</a>
                 </p>
 
-                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0 License">
+                <a rel="license external" href="http://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0 License">
                     <div id="ccIconContainer">
-                            <img class="ccIcon" alt="Ucon Creative Commons" src={{ "img/icon-cc-64x64.png" | relURL }}>
-                            <img class="ccIcon" alt="Icon Creative Commons By" src={{ "img/icon-cc-by-64x64.png" | relURL }}>
+                            <img class="ccIcon" alt="Creative Commons" src={{ "img/icon-cc-64x64.png" | relURL }}>
+                            <img class="ccIcon" alt="Creative Commons By" src={{ "img/icon-cc-by-64x64.png" | relURL }}>
                     </div>
                 </a>
             </div>
             <div id="footerLinks">
                 <ul>
                     <li>
-                        <a rel="alternate" href="{{ relref . (dict "path" "_index.md" "outputFormat" "atom") }}"><span class="icon-rss"></span>Atom</a>
+                        <a rel="alternate" href="{{ relref . (dict "path" "_index.md" "outputFormat" "atom") }}">
+                            <span class="icon-rss"></span>
+                            Atom
+                        </a>
                     </li>
                     <li>
                         <a rel="impressum" href="{{ relref . "impressum.html" }}" title="Impressum">Impressum</a>
