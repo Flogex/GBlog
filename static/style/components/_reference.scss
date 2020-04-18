@@ -1,21 +1,18 @@
-/* Wrap to increase specificity */
-#articleContent {
-    .reference, .reference-return {
+.reference.reference, .reference-return.reference-return { /* Increase specificity */
+    text-decoration: none;
+}
+
+.reference-source::after {
+    content: unset;
+}
+
+/* Hugo footnotes */
+.footnote-ref {
+    a {
         text-decoration: none;
     }
-    
-    .reference-source::after {
-        content: unset;
-    }
-    
-    /* Hugo footnotes */
-    .footnote-ref {
-        a {
-            text-decoration: none;
-        }
-    }
-    
-    .footnote-return {
-        text-decoration: none;
-    }
+}
+
+.footnote-return.footnote-return {
+    text-decoration: none;
 }

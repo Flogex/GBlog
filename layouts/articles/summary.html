@@ -4,19 +4,11 @@
     </a>
 
     <small class="articleInfo">
-        {{ with .Params.author }}
-            by {{ . }}
-        {{ end }}
-
-        {{ if not (time .Date).IsZero }}
-            on {{ .Date.Format "02.01.2006" }}
-        {{ end }}
+        {{- partial "metadata" (dict "author" .Params.author "date" .Date) -}}
     </small>
 
     <p class="abstract">
-        {{ .Summary }}
-        <br/>
-        <i><a rel="post" href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">Read more</a></i>
+        {{- .Summary -}}
     </p>
 
     {{ with .Params.tags }}

@@ -12,8 +12,14 @@
 {{ define "main" }}
 <article>
     <h1>{{ .Title }}</h1>
-    {{ partial "metadata" . }}
-    <section id="articleContent">
+    
+    <div id="articleMeta">
+        <small>
+            {{- partial "metadata" (dict "author" .Params.author "date" .Date) -}}
+        </small>
+    </div>
+
+    <section class="articleContent">
         {{ .Content }}
     </section>
 

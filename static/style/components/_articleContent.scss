@@ -1,6 +1,6 @@
 @use '../variables' as var;
 
-#articleContent {
+.articleContent {
     width: 100%;
 
     h2 {
@@ -43,6 +43,10 @@
 
     ul, ol {
         padding-left: 30px;
+
+        @media (min-width: var.$breakpoint-tablet) {
+            padding-left: 40px;
+        }
     }
 
     li {
