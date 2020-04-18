@@ -1,5 +1,5 @@
 ---
 aliases:
 - /articles
-title: Home
+title: Articles
 ---
