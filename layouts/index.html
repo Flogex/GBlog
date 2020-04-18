@@ -7,13 +7,14 @@
 {{ end }}
 
 {{ define "main" }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Section" "articles") }}
+
 <div id="articleContainer">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "articles") }}
     {{ range  $paginator.Pages }}
         {{ .Render "summary" }}
     {{ else }}
         <p>Articles will be shown here in the future.</p>    
-    {{ end}}
+    {{ end }}
 </div>
 
 {{ partial "pagination" $paginator }}
