@@ -4,13 +4,7 @@
     </a>
 
     <small class="articleInfo">
-        {{ with .Params.author }}
-            by {{ . }}
-        {{ end }}
-
-        {{ if not (time .Date).IsZero }}
-            on {{ .Date.Format "02.01.2006" }}
-        {{ end }}
+        {{- partial "metadata" (dict "author" .Params.author "date" .Date) -}}
     </small>
 
     <p class="abstract">

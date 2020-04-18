@@ -1,12 +1,7 @@
-<div id="articleMeta">
-    <!--TODO: Reuse this template for articleListItems and check if page is article or list-->
-    <small>
-        {{ with .Params.author }} 
-            {{ printf "by %v " . -}}
-        {{ end }}
+{{ with .author -}}
+    by {{ . }}&nbsp;
+{{- end }}
 
-        {{- if not (time .Date).IsZero }}
-            {{- printf "on %v" (.Date.Format "2006-02-01") }}
-        {{ end }}
-    </small>
-</div>
+{{- if not (time .date).IsZero -}}
+    on {{ .date.Format "Jan 2, 2006" }}
+{{- end }}
