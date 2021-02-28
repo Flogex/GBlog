@@ -4,6 +4,8 @@ title: G-Blog
 summaryLength: 60
 paginate: 2
 canonifyURLs: true
+ignoreFiles:
+  - 'research/.*'
 disableKinds:
   - taxonomy
   - taxonomyTerm
