@@ -56,6 +56,10 @@ Now the `ElasticClient` authenticates using the default credentials for the curr
 
 ## References
 
-{{% reference 1 "https://www.elastic.co/guide/en/elasticsearch/client/net-api/7.x/modifying-default-connection.html" %}}
+{{% reference 1 %}}
+<a class="reference-source" rel="external" href="https://www.elastic.co/guide/en/elasticsearch/client/net-api/7.x/modifying-default-connection.html">Modifying the default connection | Elastic</a>
+{{% /reference %}}
 
-{{% reference 2 "https://docs.microsoft.com/en-us/dotnet/api/system.net.credentialcache.defaultcredentials?view=netcore-3.1#remarks" %}}
+{{% reference 2 %}}
+<a class="reference-source" rel="external" href="https://docs.microsoft.com/en-us/dotnet/api/system.net.credentialcache.defaultcredentials?view=netcore-3.1#remarks">CredentialCache.DefaultCredentials Property | Microsoft Docs</a>
+{{% /reference %}}
