@@ -1,6 +1,6 @@
 {{ $reference := anchorize (.Get 0) }}
 {{ $source := .Get 1 }}
 <p id="reference-{{ $reference }}">
-    [{{ $reference }}]: <a class="reference-source" rel="external" href="{{ $source }}">{{ $source }}</a>
+    [{{ $reference }}]: {{ .Inner | safeHTML }}
     <a class="reference-return" href="#referrer-{{ $reference }}"><sup>[return]</sup></a>
 </p>
