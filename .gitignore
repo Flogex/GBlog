@@ -1,6 +1,7 @@
 /public/
 /resources/
 /content/articles/sample*.md
+/content/research
 
 *.css
 *.css.map
