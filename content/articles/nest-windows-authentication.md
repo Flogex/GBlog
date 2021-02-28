@@ -16,7 +16,7 @@ slug: nest-with-windows-authentication
 
 NEST, the high-level Elasticsearch client for .NET, can be used with Integrated Windows Authentication. This can be useful, for example, if Elasticsearch is running behind a reverse proxy with Windows Authentication.
 
-Using the default `HttpConnection`, NEST will complain that it "could not authenticate to specific node." But luckily, you can create your own `IConnection` {{% referTo 1 %}}.
+Using the default `HttpConnection`, NEST will complain that it "could not authenticate to specific node." But luckily, you can create your own `IConnection` {{< referTo 1 >}}.
 
 The easiest way to enable Integrated Windows Authentication is to derive from `HttpConnection` and override `CreateHttpClientHandler`. This method returns a `HttpMessageHandler`, but it is [actually](https://github.com/elastic/elasticsearch-net/blob/e423347a5e59d95bb5c933361f0ad7a715dbfa59/src/Elasticsearch.Net/Connection/HttpConnection.cs#L179) the more concrete `HttpClientHandler`.[^1] After converting the handler object, we can set `UseDefaultCredentials` to `true`.
 
@@ -50,7 +50,7 @@ var settings = new ConnectionSettings(connectionPool,
 var client = new ElasticClient(settings);
 ```
 
-Now the `ElasticClient` authenticates using the default credentials for the current security context, which are usually the user's Windows credentials {{% referTo 2 %}}.
+Now the `ElasticClient` authenticates using the default credentials for the current security context, which are usually the user's Windows credentials {{< referTo 2 >}}.
 
 ---
 
