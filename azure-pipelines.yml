@@ -1,7 +1,7 @@
 name: GBlog-$(SourceBranchName)-$(Date:yyyyMMdd)-$(Rev:.r)
 
 trigger:
-- master
+- main
 
 pr: none
 
