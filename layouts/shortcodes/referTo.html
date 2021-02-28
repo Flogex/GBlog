@@ -1,2 +1,4 @@
-{{ $reference := anchorize (.Get 0) }}
-<a id="referrer-{{ $reference }}" class="reference" href="#reference-{{ $reference }}">\[{{ $reference }}\]</a>
+{{- $reference := anchorize (.Get 0) -}}
+{{- $postnote := .Get 1 -}}
+{{- $content := print $reference (cond (ne $postnote nil) $postnote "") -}}
+<a id="referrer-{{ $reference }}" class="reference" href="#reference-{{ $reference }}">[{{ $content }}]</a>
