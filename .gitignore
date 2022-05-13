@@ -4,8 +4,8 @@
 /content/articles/sample*.md
 /content/research
 
-*.css
-*.css.map
-*.scss.map
+static/style/**/*.css
+static/style/**/*.css.map
+static/style/**/*.scss.map
 
 *.code-workspace

@@ -1,0 +1,119 @@
+#tcp-packet-form {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: auto;
+    row-gap: 20px;
+    column-gap: 35px;
+    grid-template-areas:
+        "srcAddr srcPort"
+        "dstAddr dstPort"
+        "seqNum  ackNum"
+        "window  .      "
+        "flags   flags  "
+        "payload payload";
+
+    max-width: 600px;
+}
+
+.field-container {
+    box-sizing: border-box;
+}
+
+.field-container label {
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 2px;
+}
+
+.field-container input {
+    box-shadow: 0 0 0 1px grey;
+    border: none;
+    border-radius: 7px;
+    padding: 3px;
+    outline: none;
+    width: 200px;
+}
+
+.field-container input:focus {
+    box-shadow: 0 0 2pt 1pt cornflowerblue;
+}
+
+.field-container #payload-input {
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 3px 6px;
+    width: 100%;
+    resize: vertical;
+    outline: none;
+}
+
+.checkbox-container {
+    width: fit-content;
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-container input {
+    margin: 0;
+    margin-left: 4px;
+}
+
+#flags-inner-border {
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 5px;
+    padding-right: 10px;
+}
+
+.checkbox-container legend {
+    margin-bottom: 2px;
+    padding: 0;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+#source-address {
+    grid-area: srcAddr;
+}
+
+#source-port {
+    grid-area: srcPort;
+}
+
+#destination-address {
+    grid-area: dstAddr;
+}
+
+#destination-port {
+    grid-area: dstPort;
+}
+
+#sequence-number {
+    grid-area: seqNum
+}
+
+#acknowledgement-number {
+    grid-area: ackNum;
+}
+
+#flags {
+    grid-area: flags;
+}
+
+#window {
+    grid-area: window;
+}
+
+#payload {
+    grid-area: payload;
+}
