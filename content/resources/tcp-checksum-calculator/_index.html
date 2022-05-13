@@ -1,0 +1,139 @@
+---
+title: TCP Checksum Calculator
+summary: Give me the TCP pseudo header and I will calculate the segments's checksum for you.
+keywords:
+- TCP
+- Checksum
+- Tool
+---
+
+<h2>TCP Checksum Calculator</h2>
+
+<link type="text/css" rel="stylesheet" href="./style.css" />
+
+<script src="./calculator.js"></script>
+
+<script>
+    function loadTests() {
+        var scriptTag = document.createElement("script");
+        scriptTag.src = "./tests.js";
+        document.head.appendChild(scriptTag);
+    }
+</script>
+
+<script>
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const pkg = {
+            "src": formData.get("src"),
+            "dst": formData.get("dst"),
+            "srcPort": formData.get("srcPort"),
+            "dstPort": formData.get("dstPort"),
+            "seq": formData.get("seq"),
+            "ack": formData.get("ack") ?? 0,
+            "flags": formData.getAll("flags"),
+            "window": formData.get("window") ?? 0,
+            "payload": formData.get("payload")
+        };
+
+        const checksum = calcChecksum(pkg);
+
+        document.getElementById("checksum").innerText = "0x" + checksum.toString(16).toUpperCase();
+        document.getElementById("checksum-paragraph").hidden = false;
+
+        return false;
+    }
+</script>
+
+<form id="tcp-packet-form" onsubmit="handleSubmit(event)">
+    <div id="source-address" class="field-container">
+        <label for="source-address-input">IPv4 Source Address:</label>
+        <input id="source-address-input" class="input-left" name="src"
+            type="text" required pattern="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}"
+            placeholder="172.16.127.1">
+    </div>
+
+    <div id="source-port" class="field-container">
+        <label for="source-port-input">Source Port:</label>
+        <input id="source-port-input" class="input-right" name="srcPort"
+            type="number" required min="0" max="65535"
+            placeholder="1313">
+    </div>
+
+    <div id="destination-address" class="field-container">
+        <label for="destination-address-input">IPv4 Destination Address:</label>
+        <input id="destination-address-input" class="input-left" name="dst"
+            type="text" required pattern="(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}"
+            placeholder="185.137.168.188">
+    </div>
+
+    <div id="destination-port" class="field-container">
+        <label for="destination-port-input">Destination Port:</label>
+        <input id="destination-port-input" class="input-right" name="dstPort"
+            type="number" required min="0" max="65535"
+            placeholder="80">
+    </div>
+
+    <div id="sequence-number" class="field-container">
+        <label for="sequence-number-input">Sequence Number:</label>
+        <input id="sequence-number-input" class="input-left" name="seq"
+            type="number" required min="0" max="4294967295"
+            placeholder="3785974232">
+    </div>
+
+    <div id="acknowledgement-number" class="field-container">
+        <label for="acknowledgement-number-input">Acknowledgement Number:</label>
+        <input id="acknowledgement-number-input" class="input-left" name="ack"
+            type="number" min="0" max="4294967295"
+            placeholder="2789245672">
+    </div>
+
+    <div id="window" class="field-container">
+        <label for="window-input">Window:</label>
+        <input id="window-input" name="window"
+            type="number" min="0" max="65535"
+            placeholder="271">
+    </div>
+
+    <fieldset id="flags" class="checkbox-container">
+        <legend>Flags:</legend>
+        
+        <div id="flags-inner-border">
+            <input id="flag-cwr" type="checkbox" name="flags" value="CWR">
+            <label for="flag-cwr">CWR</label>
+            
+            <input id="flag-ece" type="checkbox" name="flags" value="ECE">
+            <label for="flag-ece">ECE</label>
+            
+            <input id="flag-urg" type="checkbox" name="flags" value="URG">
+            <label for="flag-urg">URG</label>
+            
+            <input id="flag-ack" type="checkbox" name="flags" value="ACK">
+            <label for="flag-ack">ACK</label>
+            
+            <input id="flag-psh" type="checkbox" name="flags" value="PSH">
+            <label for="flag-psh">PSH</label>
+            
+            <input id="flag-rst" type="checkbox" name="flags" value="RST">
+            <label for="flag-rst">RST</label>
+            
+            <input id="flag-syn" type="checkbox" name="flags" value="SYN">
+            <label for="flag-syn">SYN</label>
+            
+            <input id="flag-fin" type="checkbox" name="flags" value="FIN">
+            <label for="flag-fin">FIN</label>
+        </div>
+    </fieldset>
+
+    <div id="payload" class="field-container">
+        <label for="payload-input">Data:</label>
+        <textarea id="payload-input" name="payload" placeholder="Payload as UTF-8 text..."></textarea>
+    </div>
+</form>
+
+<button form="tcp-packet-form" type="submit">Calculate checksum</button>
+
+<p id="checksum-paragraph" hidden>Checksum: <span id="checksum"></span></p>
