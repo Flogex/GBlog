@@ -1,6 +1,5 @@
 {{ $reference := anchorize (.Get 0) }}
-{{ $source := .Get 1 }}
 <p id="reference-{{ $reference }}">
     [{{ $reference }}]: {{ .Inner | safeHTML }}
-    <a class="reference-return" href="#referrer-{{ $reference }}"><sup>[return]</sup></a>
+    <a class="footnote-backref" role="doc-backlink" href="#referrer-{{ $reference }}">↩︎</a>
 </p>

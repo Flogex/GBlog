@@ -71,14 +71,14 @@ I like this approach since it removes some overhead for this specific use case. 
 
 ## References
 
-{{% reference 1 %}}
+{{< reference 1 >}}
 <span>Roy Osherove. <i>The Art of Unit Testing</i>. 2nd edition. Manning, 2014.</span>
-{{% /reference %}}
+{{< /reference >}}
 
-{{% reference 2 %}}
+{{< reference 2 >}}
 <a class="reference-source" rel="external" href="https://jamesnewkirk.typepad.com/posts/2007/09/why-you-should-.html">Why you should not use SetUp and TearDown in NUnit | James Newkirk</a>
-{{% /reference %}}
+{{< /reference >}}
 
-{{% reference 3 %}}
+{{< reference 3 >}}
 <a class="reference-source" rel="external" href="https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#support-for-code-generators">What's new in C# 9.0 | Microsoft Docs</a>
-{{% /reference %}}
+{{< /reference >}}
