@@ -18,10 +18,10 @@ jobs:
     clean: all
   timeoutInMinutes: 2
   variables:
-    hugo_download_url: https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.tar.gz
+    hugo_download_url: https://github.com/gohugoio/hugo/releases/download/v0.61.0/hugo_0.61.0_Linux-64bit.tar.gz
     hugo_archive: hugo.tar.gz
     hugo_build_path: $(System.DefaultWorkingDirectory)/$(artifact_name)
-    sass_download_url: https://github.com/sass/dart-sass/releases/download/1.26.3/dart-sass-1.26.3-linux-x64.tar.gz
+    sass_download_url: https://github.com/sass/dart-sass/releases/download/1.52.1/dart-sass-1.52.1-linux-x64.tar.gz
     sass_archive: sass.tar.gz
     sass_directory: $(hugo_build_path)/style
   steps:
